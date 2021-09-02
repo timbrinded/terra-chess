@@ -1,4 +1,4 @@
-#![allow(clippy::all)]
+#![allow(clippy::all, unused_imports)]
 pub mod contract;
 pub mod engine;
 mod error;

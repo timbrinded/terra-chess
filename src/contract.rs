@@ -1,4 +1,4 @@
-#![allow(clippy::all)]
+#![allow(clippy::all, unused_imports, dead_code)]
 //#![allow(dead_code)]
 use cosmwasm_std::entry_point;
 use cosmwasm_std::{
@@ -103,7 +103,7 @@ pub fn try_start_match(
     let opponent_checked = deps.api.addr_validate(&opponent)?;
     let moves = vec![first_move];
 
-    MATCHS.save(deps.storage, (&host, &opponent_checked), &moves);
+    MATCHS.save(deps.storage, (&host, &opponent_checked), &moves)?;
 
     Ok(Response::new())
 }
@@ -161,8 +161,6 @@ mod tests {
     use cosmwasm_std::testing::{mock_dependencies, mock_env, mock_info};
     use cosmwasm_std::{coins, from_binary};
     use cw_controllers::AdminResponse;
-
-    const INIT_ADMIN: &str = "juan";
 
     #[test]
     fn humble_chess_test() {

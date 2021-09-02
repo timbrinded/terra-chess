@@ -1,11 +1,11 @@
 #[allow(unused_imports)]
-use std::env::current_dir;
-use std::fs::create_dir_all;
+// use std::env::current_dir;
+// //use std::fs::create_dir_all;
 
-use cosmwasm_schema::{export_schema, remove_schemas, schema_for};
+// use cosmwasm_schema::{export_schema, remove_schemas, schema_for};
 
-use terra_chess::msg::*;
-use terra_chess::state::*;
+// use terra_chess::msg::*;
+// use terra_chess::state::*;
 
 fn main() {
     // let mut out_dir = current_dir().unwrap();
