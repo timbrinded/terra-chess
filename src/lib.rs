@@ -1,5 +1,4 @@
-#[allow(unused_imports)]
-#[macro_use]
+#![allow(clippy, unused_imports)]
 pub mod contract;
 pub mod engine;
 mod error;

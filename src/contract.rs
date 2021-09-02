@@ -92,7 +92,7 @@ pub fn try_make_move(
 
     Ok(Response::new())
 }
-
+#[allow(clippy)]
 pub fn try_start_match(
     deps: DepsMut,
     info: MessageInfo,
