@@ -1,4 +1,4 @@
-#![allow(unused_imports, clippy)]
+#![allow(clippy::all)]
 //#![allow(dead_code)]
 use cosmwasm_std::entry_point;
 use cosmwasm_std::{
