@@ -1,4 +1,4 @@
-#![allow(unused_imports)]
+#![allow(unused_imports, clippy)]
 //#![allow(dead_code)]
 use cosmwasm_std::entry_point;
 use cosmwasm_std::{
@@ -92,7 +92,7 @@ pub fn try_make_move(
 
     Ok(Response::new())
 }
-#[allow(clippy)]
+
 pub fn try_start_match(
     deps: DepsMut,
     info: MessageInfo,

@@ -2128,7 +2128,7 @@ pub fn string_to_pos(string: &str) -> Result<(usize, usize), i32> {
 /// // Returns Err(1) when the values are out of bounds.
 /// assert_eq!(pos_to_string((8, 8)), Err(1));
 /// ```
-#[allow(clippy)]
+#[allow(clippy::all)]
 pub fn pos_to_string(pos: (usize, usize)) -> Result<String, i32> {
     if pos.0 > 7 || pos.1 > 7 {
         return Err(1);
