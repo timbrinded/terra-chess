@@ -52,7 +52,7 @@ pub fn execute(
 
 pub fn try_make_move(
     deps: DepsMut,
-    info: MessageInfo,
+    _info: MessageInfo,
     host: String,
     opponent: String,
     your_move: ChessMove,
@@ -74,7 +74,7 @@ pub fn try_make_move(
     let pos_end = your_move.new;
     let valid_moves = game.valid_moves(pos_start);
     for i in &valid_moves {
-        let (a, b) = i.last().unwrap();
+        let (_a, b) = i.last().unwrap();
         if b == &pos_end {
             game.move_piece(pos_start, pos_end);
             moves_made.push(your_move);
