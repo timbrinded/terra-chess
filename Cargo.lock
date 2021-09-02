@@ -39,14 +39,6 @@ source = "registry+https://github.com/rust-lang/crates.io-index"
 checksum = "baf1de4339761588bc0619e3cbc0120ee582ebb74b53b4efbf79117bd2da40fd"
 
 [[package]]
-name = "chess"
-version = "0.1.0"
-source = "git+https://github.com/kalkins/rust_chess#6b027d53e768fd573bdb8817120011a7d7cbde86"
-dependencies = [
- "log 0.3.9",
-]
-
-[[package]]
 name = "const-oid"
 version = "0.6.0"
 source = "registry+https://github.com/rust-lang/crates.io-index"
@@ -614,7 +606,6 @@ dependencies = [
 name = "terra-chess"
 version = "0.1.0"
 dependencies = [
- "chess",
  "cosmwasm-schema",
  "cosmwasm-std",
  "cosmwasm-storage",
