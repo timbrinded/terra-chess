@@ -49,7 +49,7 @@ pub struct Game {
     pub result: GameResult,
 }
 
-#[derive(Serialize, Deserialize, Clone, PartialEq, JsonSchema, Debug)]
+#[derive(Serialize, Deserialize, Clone, PartialEq, Debug)]
 pub struct ChessMatch {
     pub host: String,
     pub opponent: String,
@@ -58,7 +58,7 @@ pub struct ChessMatch {
     pub result: GameResult,
 }
 
-#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq)]
 pub enum GameResult {
     Win,
     Loss,
@@ -66,13 +66,13 @@ pub enum GameResult {
     InProgress,
 }
 
-#[derive(Serialize, Deserialize, Clone, PartialEq, JsonSchema, Debug)]
+#[derive(Serialize, Deserialize, Clone, PartialEq, Debug)]
 pub struct GameList {
     pub games: Vec<ChessMatch>,
 }
 
 // We define a custom struct for each query response
-#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq)]
 pub struct GameReponse {
     pub host_move: GameMove,
     pub opp_move: GameMove,
