@@ -157,7 +157,6 @@ fn query_host_games(deps: Deps, host: String) -> StdResult<GameList> {
 mod tests {
     use super::*;
     use crate::error::ContractError;
-    //use chess::*;
     use crate::state::ChessMove;
     use cosmwasm_std::testing::{mock_dependencies, mock_env, mock_info};
     use cosmwasm_std::{coins, from_binary};
