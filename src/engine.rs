@@ -161,6 +161,7 @@ impl std::fmt::Display for Piece {
 ///     panic!("The piece at A1 should be a bishop.");
 /// }
 /// ```
+#[allow(clippy::all)]
 #[derive(Clone)]
 pub struct Game<'a> {
     /// The current turn number.
@@ -178,7 +179,7 @@ pub struct Game<'a> {
     seventy_five_move_rule: u32,
     last_color: Color,
 }
-
+#[allow(clippy::all)]
 impl<'a> Game<'a> {
     /// Creates a new game, with all the pieces in the correct starting position.
     ///
@@ -632,6 +633,7 @@ impl<'a> Game<'a> {
     ///     None => panic!("There should be a rook here."),
     /// }
     /// ```
+    #[allow(clippy::all)]
     pub fn move_pieces(&mut self, moves: &[((usize, usize), (usize, usize))]) -> Option<&'a Piece> {
         let mut to: (usize, usize);
         let mut from: (usize, usize);
@@ -723,6 +725,7 @@ impl<'a> Game<'a> {
     ///     }
     /// }
     /// ```
+    #[allow(clippy::all)]
     pub fn valid_moves(&self, pos: (usize, usize)) -> Vec<Vec<((usize, usize), (usize, usize))>> {
         self.check_valid_moves(pos, true)
     }
@@ -1337,7 +1340,7 @@ impl<'a> Game<'a> {
         info!("Not in check");
         false
     }
-
+    #[allow(clippy::all)]
     fn check_for_check(&self, from: (usize, usize), to: (usize, usize)) -> bool {
         info!(
             "check_for_check called with args: from ({}, {}) to: ({}, {})",
@@ -1381,6 +1384,7 @@ impl<'a> Game<'a> {
     ///
     /// // Now the king is in check, and can't move, so white has won by checkmate.
     /// ```
+    #[allow(clippy::all)]
     pub fn check_victory(&self) -> Option<(VictoryStatus, Color)> {
         if self.seventy_five_move_rule >= 75 {
             return Some((VictoryStatus::Draw, Color::White));
@@ -1456,6 +1460,7 @@ impl<'a> Game<'a> {
     /// m = game.an_to_move("e5", Color::Black).unwrap();
     /// assert_eq!(game.move_to_an(&m, true, false), "e5");
     /// ```
+    #[allow(clippy::all)]
     pub fn move_to_an(
         &self,
         m: &[((usize, usize), (usize, usize))],
@@ -1711,6 +1716,7 @@ impl<'a> Game<'a> {
     /// m = game.an_to_move("0-0-0", Color::White);
     /// assert_eq!(m, Some(vec![((4, 0), (3, 0)), ((3, 0), (2, 0)), ((0, 0), (3, 0))]));
     /// ```
+    #[allow(clippy::all)]
     pub fn an_to_move(
         &self,
         s: &str,
@@ -1866,6 +1872,7 @@ impl<'a> Game<'a> {
     /// let m = game.valid_moves((4, 1));
     /// assert_eq!(game.move_to_string(&m[0][0]), "Moving white pawn from E2 to E4");
     /// ```
+    #[allow(clippy::all)]
     pub fn move_to_string(&self, m: &((usize, usize), (usize, usize))) -> String {
         let mut s = String::new();
         let from = m.0;
@@ -1908,6 +1915,7 @@ impl<'a> Game<'a> {
     /// let m = game.valid_moves((4, 1));
     /// assert_eq!(game.moves_to_string(&m[0]), "Moving white pawn from E2 to E4");
     /// ```
+    #[allow(clippy::all)]
     pub fn moves_to_string(&self, m: &[((usize, usize), (usize, usize))]) -> String {
         let mut s = String::new();
         let mut first = true;
@@ -1958,6 +1966,7 @@ impl<'a> Game<'a> {
     ///           \n♙♙♙♙♙♙♙♙\
     ///           \n♖♘♗♕♔♗♘♖");
     /// ```
+    #[allow(clippy::all)]
     pub fn board_to_string(&self, unicode: bool) -> String {
         let mut s = String::new();
         let mut y: usize;
@@ -2027,6 +2036,7 @@ impl<'a> Game<'a> {
     }
 
     /// Checks whether there has occured a three fold repetition.
+    #[allow(clippy::all)]
     pub fn three_fold_repetition(&self) -> bool {
         if self.board_history.len() >= 3 {
             info!("Checking for three fold repetition");
