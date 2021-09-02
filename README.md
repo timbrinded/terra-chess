@@ -32,11 +32,14 @@ Terra Chess is a decentralized banking protocol for chess arenas and their commu
 
 ## Road map
 ### **Current Functionality**
-* Starting and playing games of chess
+* Starting games of chess and submitting moves
 * In game queries
-* Leaderboard 
+* Match end and valid move detection
+* "Playable" only via UnitTests
 
 ### **Planned Features**
+* Leaderboard 
+* Waiting lobby
 * Staking with money and prize allocation
 * Improved chess engine
 * Web front end
@@ -56,3 +59,8 @@ We are Tim & Chad:
  - **Tim**: Smart contract design, engineering and implementation
 
 More information can be found at: [Terra Chess Gitbook](https://11chadambrose.gitbook.io/terra-chess/) 
+
+## Acknowledgements
+- Using *kalkins' chess library* on [github](https://github.com/kalkins/rust_chess) 
+- Using *CosmWasm plus* on [github](https://github.com/CosmWasm/cw-plus)
+
