@@ -18,7 +18,7 @@ use cw0::maybe_addr;
 pub fn instantiate(
     mut deps: DepsMut,
     _env: Env,
-    info: MessageInfo,
+    _info: MessageInfo,
     msg: InstantiateMsg,
 ) -> Result<Response, ContractError> {
     let api = deps.api;
