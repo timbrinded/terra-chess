@@ -14,7 +14,7 @@ use crate::state::*;
 use cw0::maybe_addr;
 use serde::{Deserialize, Serialize};
 
-#[cfg_attr(not(feature = "library"), entry_point)]
+//#[cfg_attr(not(feature = "library"), entry_point)]
 pub fn instantiate(
     mut deps: DepsMut,
     _env: Env,
@@ -26,7 +26,7 @@ pub fn instantiate(
     Ok(Response::default())
 }
 
-#[cfg_attr(not(feature = "library"), entry_point)]
+//#[cfg_attr(not(feature = "library"), entry_point)]
 pub fn execute(
     deps: DepsMut,
     _env: Env,
