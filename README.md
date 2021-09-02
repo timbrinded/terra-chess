@@ -1,9 +1,8 @@
 # Terra Chess
 
-TODO:
-We need description of what this repo is and what is is for 
+As part of Spacecamp 2021, Team Terra Chess presents....Terra Chess!
 
-[Cosmos SDK](https://github.com/cosmos/cosmos-sdk) <-- you can do links like this.
+This repo is an early proof of concept for a blockchain based chess application that would form the backbone of a new community based Chess gaming protocol. 
 
 -------------------------------
 
@@ -19,31 +18,41 @@ However to see ASCII logos of what's going on, use:
 cargo test -- --nocapture
 ```
 
+![In Progress Game](chess_board.png)
+
 ----------------------------------------------
 
 ## Background
 
-Write a little bit about us and why we are doing this
+Spend your yields to defend your Terra Chess ranking, rank up to access stronger badges!
+Pool your funds with your favorite chess club, federation, or broadcaster.
+Terra Chess is a decentralized banking protocol for chess arenas and their communities. Arena supporters can earn yields by providing liquidity to public arena pools, and governing the ecosystem Oracle feeds. 
+
+[Terra Chess Gitbook](https://11chadambrose.gitbook.io/terra-chess/) 
 
 ## Road map
-**Latest: 0.16**
+### **Current Functionality**
+* Starting and playing games of chess
+* In game queries
+* Leaderboard 
 
-```
-You can do code sections via the backticks here
-```
+### **Planned Features**
+* Staking with money and prize allocation
+* Improved chess engine
+* Web front end
+* Gas reductions via more efficient code
 
-**Older Version**
+### **Goals**
+* Gasless interaction
+* Coaching and Club deducations
+* Spectator betting 
 
+----------------------------------------------
 
+## Contact 
 
-## Gitpod integration
+We are Tim & Chad:
+ - **Chad**: Overall concept, background and initial design
+ - **Tim**: Smart contract design, engineering and implementation
 
-[Gitpod](https://www.gitpod.io/) container-based development platform will be enabled on your project by default.
-
-Workspace contains:
- - **rust**: for builds
- - [wasmd](https://github.com/CosmWasm/wasmd): for local node setup and client
- - **jq**: shell JSON manipulation tool
-
-Follow [Gitpod Getting Started](https://www.gitpod.io/docs/getting-started) and launch your workspace.
-
+More information can be found at: [Terra Chess Gitbook](https://11chadambrose.gitbook.io/terra-chess/) 
