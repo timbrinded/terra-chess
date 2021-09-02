@@ -1,6 +1,4 @@
-use crate::engine::VictoryStatus;
 use crate::state::ChessMove;
-use schemars::JsonSchema;
 use serde::{Deserialize, Serialize};
 
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq)]

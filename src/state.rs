@@ -2,10 +2,7 @@ use cosmwasm_std::Addr;
 use cw_controllers::{Admin, Hooks};
 use cw_storage_plus::Map;
 use serde::{Deserialize, Serialize};
-
-use crate::engine::Game as ChessGame;
 use crate::msg::ChessMatch;
-//use chess::Game as ChessGame;
 
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, Copy)]
 pub struct ChessMove {

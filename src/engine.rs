@@ -208,7 +208,7 @@ impl<'a> Game<'a> {
 
         let mut game = Game {
             turn: 1,
-            board: board,
+            board,
             ignore_kings: false,
             ignore_check: false,
             last: ((0, 0), (0, 0)),
