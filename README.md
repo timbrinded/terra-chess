@@ -8,12 +8,12 @@ This repo is an early proof of concept for a blockchain based chess application 
 
 ## Instructions for use
 
-For now it's just using:
+For now it's just using unit tests:
 ```
 cargo test
 ```
 
-However to see ASCII logos of what's going on, use:
+Additional information available by
 ```
 cargo test -- --nocapture
 ```
