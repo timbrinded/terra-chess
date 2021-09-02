@@ -13,7 +13,7 @@ pub enum ContractError {
 
     #[error("{0}")]
     Admin(#[from] AdminError),
-    
+
     #[error("{0}")]
     Hook(#[from] HookError),
 
@@ -22,5 +22,4 @@ pub enum ContractError {
 
     #[error("Unexplained")]
     Unexplained {},
-
 }

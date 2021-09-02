@@ -6,24 +6,35 @@ pub struct InstantiateMsg {
     pub admin: Option<String>,
 }
 
-
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 #[serde(rename_all = "snake_case")]
 pub enum QueryMsg {
-    GetHostGames {host: String},
-    GetGame { host: String, opponent: String},
-    GetAdmin {} ,
-    GetWins {player: String},
+    GetHostGames { host: String },
+    GetGame { host: String, opponent: String },
+    GetAdmin {},
+    GetWins { player: String },
 }
 
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 #[serde(rename_all = "snake_case")]
 pub enum ExecuteMsg {
-    StartGame { opponent: String, start_move: GameMove},
-    UpdateAdmin {admin: Option<String>},
-    AddHook { addr: String },
-    RemoveHook { addr: String },
-    Respond {host:String, opp_move: GameMove},
+    StartGame {
+        opponent: String,
+        start_move: GameMove,
+    },
+    UpdateAdmin {
+        admin: Option<String>,
+    },
+    AddHook {
+        addr: String,
+    },
+    RemoveHook {
+        addr: String,
+    },
+    Respond {
+        host: String,
+        opp_move: GameMove,
+    },
 }
 
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
@@ -49,7 +60,6 @@ pub struct ChessMatch {
     pub opp_move: GameMove,
     pub result: GameResult,
 }
-
 
 #[derive(Serialize, Deserialize, Clone, Debug, PartialEq, JsonSchema)]
 pub enum GameResult {

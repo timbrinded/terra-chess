@@ -1,5 +1,4 @@
 #[allow(unused_imports)]
-
 pub mod contract;
 mod error;
 pub mod msg;

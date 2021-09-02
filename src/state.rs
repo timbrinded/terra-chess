@@ -1,9 +1,8 @@
 #![allow(unused_imports)]
+use crate::msg::ChessMatch;
 use cosmwasm_std::Addr;
-use cw_storage_plus::Map;
 use cw_controllers::{Admin, Hooks};
-use crate::msg::{ChessMatch};
-
+use cw_storage_plus::Map;
 
 pub const GAMES: Map<(&Addr, &Addr), ChessMatch> = Map::new("game");
 pub const LEADERBOARD: Map<&Addr, u32> = Map::new("leaderboard");
