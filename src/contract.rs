@@ -1,8 +1,5 @@
-//#![allow(clippy::all, unused_imports, dead_code)]
 use cosmwasm_std::entry_point;
-use cosmwasm_std::{
-    to_binary, Binary, Deps, DepsMut, Env, MessageInfo, Order, Response, StdResult,
-};
+use cosmwasm_std::{to_binary, Binary, Deps, DepsMut, Env, MessageInfo, Response, StdResult};
 use std::result::Result;
 
 use crate::engine::Game as ChessGame;
@@ -108,9 +105,7 @@ pub fn try_start_match(
 #[cfg_attr(not(feature = "library"), entry_point)]
 pub fn query(deps: Deps, _env: Env, msg: QueryMsg) -> StdResult<Binary> {
     match msg {
-        QueryMsg::GetHostGames { host } => to_binary(&query_host_games(deps, host)?),
         QueryMsg::GetAdmin {} => to_binary(&ADMIN.query_admin(deps)?),
-        QueryMsg::GetWins { player } => to_binary(&query_board(deps, player)?),
         QueryMsg::CheckMatch { host, opponent } => to_binary(&query_match(deps, host, opponent)?),
     }
 }
@@ -121,33 +116,6 @@ fn query_match(deps: Deps, host: String, opponent: String) -> StdResult<Vec<Ches
     let match_details = MATCHS.load(deps.storage, (&host_checked, &opponent_checked))?;
 
     Ok(match_details)
-}
-
-fn query_board(deps: Deps, player: String) -> StdResult<u32> {
-    let player_checked = deps.api.addr_validate(&player)?;
-    let wins = LEADERBOARD.load(deps.storage, &player_checked)?;
-
-    Ok(wins)
-}
-
-fn query_host_games(deps: Deps, host: String) -> StdResult<GameList> {
-    let host_checked = deps.api.addr_validate(&host)?;
-    let games: StdResult<Vec<ChessMatch>> = GAMES
-        .prefix(&host_checked)
-        .range(deps.storage, None, None, Order::Ascending)
-        .take(5)
-        .map(|item| {
-            let (k, v) = item?;
-            Ok(ChessMatch {
-                host: host_checked.to_string(),
-                opponent: String::from_utf8(k)?,
-                host_move: v.host_move,
-                opp_move: v.opp_move,
-                result: v.result,
-            })
-        })
-        .collect();
-    Ok(GameList { games: games? })
 }
 
 #[cfg(test)]

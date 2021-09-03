@@ -1,1 +1,0 @@
-aafe9704a59ed73c498133e705656d36280b587e76e1777d6abfefdc9ab1859c  terra_chess.wasm
