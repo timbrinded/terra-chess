@@ -1,4 +1,3 @@
-use crate::msg::{GameMove, GameResult, RPSMatch};
 use cosmwasm_std::Addr;
 use cw_controllers::Admin;
 use cw_storage_plus::Map;
@@ -13,4 +12,3 @@ pub struct ChessMove {
 
 pub const ADMIN: Admin = Admin::new("admin");
 pub const MATCHS: Map<(&Addr, &Addr), Vec<ChessMove>> = Map::new("match");
-pub const GAMES: Map<(&Addr, &Addr), Vec<ChessMove>> = Map::new("game");

@@ -4,10 +4,8 @@ use std::result::Result;
 
 use crate::engine::Game as ChessGame;
 use crate::error::ContractError;
-use crate::msg::{
-    ExecuteMsg, GameList, GameMove, GameReponse, GameResult, InstantiateMsg, QueryMsg, RPSMatch,
-};
-use crate::state::{ChessMove, ADMIN, GAMES, MATCHS};
+use crate::msg::{ExecuteMsg, InstantiateMsg, QueryMsg};
+use crate::state::{ChessMove, ADMIN, MATCHS};
 use cw0::maybe_addr;
 
 #[cfg_attr(not(feature = "library"), entry_point)]
@@ -60,16 +58,16 @@ pub fn try_make_move(
     let mut moves_made = MATCHS.load(deps.storage, (&host_checked, &opponent_checked))?;
 
     for x in &moves_made {
-        let (u,v) = x.original;
-        let (w,z) = x.new;
+        let (u, v) = x.original;
+        let (w, z) = x.new;
         let pos_start = (u as usize, v as usize);
         let pos_end = (w as usize, z as usize);
         game.move_piece(pos_start, pos_end);
     }
     // Game state now rebuilt
 
-    let (u,v) = your_move.original;
-    let (w,z) = your_move.new;
+    let (u, v) = your_move.original;
+    let (w, z) = your_move.new;
     let pos_start = (u as usize, v as usize);
     let pos_end = (w as usize, z as usize);
     let valid_moves = game.valid_moves(pos_start);
