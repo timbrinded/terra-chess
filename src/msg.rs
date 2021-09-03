@@ -1,12 +1,13 @@
 use crate::state::ChessMove;
+use schemars::JsonSchema;
 use serde::{Deserialize, Serialize};
 
-#[derive(Serialize, Deserialize, Clone, Debug, PartialEq)]
+#[derive(Serialize, Deserialize, Clone, Debug, JsonSchema, PartialEq)]
 pub struct InstantiateMsg {
     pub admin: Option<String>,
 }
 
-#[derive(Serialize, Deserialize, Clone, Debug, PartialEq)]
+#[derive(Serialize, Deserialize, Clone, Debug, JsonSchema, PartialEq)]
 #[serde(rename_all = "snake_case")]
 pub enum QueryMsg {
     GetHostGames { host: String },
@@ -15,7 +16,7 @@ pub enum QueryMsg {
     CheckMatch { host: String, opponent: String },
 }
 
-#[derive(Serialize, Deserialize, Clone, Debug, PartialEq)]
+#[derive(Serialize, Deserialize, Clone, Debug, JsonSchema, PartialEq)]
 #[serde(rename_all = "snake_case")]
 pub enum ExecuteMsg {
     UpdateAdmin {

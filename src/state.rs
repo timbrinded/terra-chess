@@ -2,9 +2,10 @@ use crate::msg::ChessMatch;
 use cosmwasm_std::Addr;
 use cw_controllers::{Admin, Hooks};
 use cw_storage_plus::Map;
+use schemars::JsonSchema;
 use serde::{Deserialize, Serialize};
 
-#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, Copy)]
+#[derive(Serialize, Deserialize, Clone, Debug, PartialEq, Copy, JsonSchema)]
 pub struct ChessMove {
     pub original: (usize, usize),
     pub new: (usize, usize),

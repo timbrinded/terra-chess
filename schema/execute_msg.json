@@ -5,11 +5,19 @@
     {
       "type": "object",
       "required": [
-        "increment"
+        "update_admin"
       ],
       "properties": {
-        "increment": {
-          "type": "object"
+        "update_admin": {
+          "type": "object",
+          "properties": {
+            "admin": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          }
         }
       },
       "additionalProperties": false
@@ -17,23 +25,99 @@
     {
       "type": "object",
       "required": [
-        "reset"
+        "play_move"
       ],
       "properties": {
-        "reset": {
+        "play_move": {
           "type": "object",
           "required": [
-            "count"
+            "host",
+            "opponent",
+            "your_move"
           ],
           "properties": {
-            "count": {
-              "type": "integer",
-              "format": "int32"
+            "host": {
+              "type": "string"
+            },
+            "opponent": {
+              "type": "string"
+            },
+            "your_move": {
+              "$ref": "#/definitions/ChessMove"
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "start_match"
+      ],
+      "properties": {
+        "start_match": {
+          "type": "object",
+          "required": [
+            "first_move",
+            "opponent"
+          ],
+          "properties": {
+            "first_move": {
+              "$ref": "#/definitions/ChessMove"
+            },
+            "opponent": {
+              "type": "string"
             }
           }
         }
       },
       "additionalProperties": false
     }
-  ]
+  ],
+  "definitions": {
+    "ChessMove": {
+      "type": "object",
+      "required": [
+        "new",
+        "original"
+      ],
+      "properties": {
+        "new": {
+          "type": "array",
+          "items": [
+            {
+              "type": "integer",
+              "format": "uint",
+              "minimum": 0.0
+            },
+            {
+              "type": "integer",
+              "format": "uint",
+              "minimum": 0.0
+            }
+          ],
+          "maxItems": 2,
+          "minItems": 2
+        },
+        "original": {
+          "type": "array",
+          "items": [
+            {
+              "type": "integer",
+              "format": "uint",
+              "minimum": 0.0
+            },
+            {
+              "type": "integer",
+              "format": "uint",
+              "minimum": 0.0
+            }
+          ],
+          "maxItems": 2,
+          "minItems": 2
+        }
+      }
+    }
+  }
 }

@@ -1,20 +1,17 @@
-#![allow(clippy::all, unused_imports, dead_code)]
-//#![allow(dead_code)]
+//#![allow(clippy::all, unused_imports, dead_code)]
 use cosmwasm_std::entry_point;
 use cosmwasm_std::{
-    to_binary, Binary, Deps, DepsMut, Env, MessageInfo, Order, Response, StdError, StdResult,
+    to_binary, Binary, Deps, DepsMut, Env, MessageInfo, Order, Response, StdResult,
 };
 use std::result::Result;
 
 use crate::engine::Game as ChessGame;
-use crate::engine::VictoryStatus;
 use crate::error::ContractError;
 use crate::msg::*;
 use crate::state::*;
 use cw0::maybe_addr;
-use serde::{Deserialize, Serialize};
 
-//#[cfg_attr(not(feature = "library"), entry_point)]
+#[cfg_attr(not(feature = "library"), entry_point)]
 pub fn instantiate(
     mut deps: DepsMut,
     _env: Env,
@@ -26,7 +23,7 @@ pub fn instantiate(
     Ok(Response::default())
 }
 
-//#[cfg_attr(not(feature = "library"), entry_point)]
+#[cfg_attr(not(feature = "library"), entry_point)]
 pub fn execute(
     deps: DepsMut,
     _env: Env,
@@ -108,7 +105,7 @@ pub fn try_start_match(
     Ok(Response::new())
 }
 
-//#[cfg_attr(not(feature = "library"), entry_point)]
+#[cfg_attr(not(feature = "library"), entry_point)]
 pub fn query(deps: Deps, _env: Env, msg: QueryMsg) -> StdResult<Binary> {
     match msg {
         QueryMsg::GetHostGames { host } => to_binary(&query_host_games(deps, host)?),
@@ -156,11 +153,11 @@ fn query_host_games(deps: Deps, host: String) -> StdResult<GameList> {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::error::ContractError;
+    //use crate::error::ContractError;
     use crate::state::ChessMove;
     use cosmwasm_std::testing::{mock_dependencies, mock_env, mock_info};
     use cosmwasm_std::{coins, from_binary};
-    use cw_controllers::AdminResponse;
+    //use cw_controllers::AdminResponse;
 
     #[test]
     fn humble_chess_test() {
