@@ -18,7 +18,7 @@ Additional information available by
 cargo test -- --nocapture
 ```
 
-![In Progress Game](chess_board.png)
+![In Progress Game](chessboard.png)
 
 ----------------------------------------------
 

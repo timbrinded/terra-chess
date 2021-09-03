@@ -4,8 +4,10 @@ use std::result::Result;
 
 use crate::engine::Game as ChessGame;
 use crate::error::ContractError;
-use crate::msg::*;
-use crate::state::*;
+use crate::msg::{
+    ExecuteMsg, GameList, GameMove, GameReponse, GameResult, InstantiateMsg, QueryMsg, RPSMatch,
+};
+use crate::state::{ChessMove, ADMIN, GAMES, MATCHS};
 use cw0::maybe_addr;
 
 #[cfg_attr(not(feature = "library"), entry_point)]
@@ -58,21 +60,25 @@ pub fn try_make_move(
     let mut moves_made = MATCHS.load(deps.storage, (&host_checked, &opponent_checked))?;
 
     for x in &moves_made {
-        let pos_start = x.original;
-        let pos_end = x.new;
+        let (u,v) = x.original;
+        let (w,z) = x.new;
+        let pos_start = (u as usize, v as usize);
+        let pos_end = (w as usize, z as usize);
         game.move_piece(pos_start, pos_end);
     }
     // Game state now rebuilt
 
-    let pos_start = your_move.original;
-    let pos_end = your_move.new;
+    let (u,v) = your_move.original;
+    let (w,z) = your_move.new;
+    let pos_start = (u as usize, v as usize);
+    let pos_end = (w as usize, z as usize);
     let valid_moves = game.valid_moves(pos_start);
     for i in &valid_moves {
         let (_a, b) = i.last().unwrap();
         if b == &pos_end {
             game.move_piece(pos_start, pos_end);
             moves_made.push(your_move);
-        }
+        };
     }
 
     match game.check_victory() {
@@ -114,18 +120,15 @@ fn query_match(deps: Deps, host: String, opponent: String) -> StdResult<Vec<Ches
     let host_checked = deps.api.addr_validate(&host)?;
     let opponent_checked = deps.api.addr_validate(&opponent)?;
     let match_details = MATCHS.load(deps.storage, (&host_checked, &opponent_checked))?;
-
     Ok(match_details)
 }
 
 #[cfg(test)]
 mod tests {
     use super::*;
-    //use crate::error::ContractError;
     use crate::state::ChessMove;
     use cosmwasm_std::testing::{mock_dependencies, mock_env, mock_info};
     use cosmwasm_std::{coins, from_binary};
-    //use cw_controllers::AdminResponse;
 
     #[test]
     fn humble_chess_test() {

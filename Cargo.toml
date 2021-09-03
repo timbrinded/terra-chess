@@ -1,6 +1,6 @@
 [package]
 name = "terra-chess"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["timbo"]
 edition = "2018"
 
