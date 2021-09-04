@@ -1,0 +1,42 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "QueryMsg",
+  "anyOf": [
+    {
+      "type": "object",
+      "required": [
+        "GetAdmin"
+      ],
+      "properties": {
+        "GetAdmin": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": false
+    },
+    {
+      "type": "object",
+      "required": [
+        "CheckMatch"
+      ],
+      "properties": {
+        "CheckMatch": {
+          "type": "object",
+          "required": [
+            "host",
+            "opponent"
+          ],
+          "properties": {
+            "host": {
+              "type": "string"
+            },
+            "opponent": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  ]
+}

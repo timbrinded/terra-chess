@@ -1,3 +1,4 @@
+#![allow(clippy::many_single_char_names)]
 use cosmwasm_std::entry_point;
 use cosmwasm_std::{to_binary, Binary, Deps, DepsMut, Env, MessageInfo, Response, StdResult};
 use std::result::Result;
