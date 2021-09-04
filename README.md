@@ -31,7 +31,7 @@ The following addresses viewable on Bombay-10:
 
 The contract has already been deployed to the Bombay-10 testnet. It can be interacted with by sending it messages defined in the `/schema/` folder, either by cli or otherwise. For example via the CLI you can run the following to start a new game between two wallet addresses:
 ```
-terrad tx wasm execute terra18vd8fpwxzck93qlwghaj6arh4p7c5n896xzem5 '{"start_match":{"first_move":{"new":[3,3],"original":[3,1]},"opponent":"terra17lmam6zguazs5q5u6z5mmx76uj63gldnse2pdp"}}' --from testacc1 --chain-id=bombay-10 --fees=2000uluna --gas=auto --broadcast-mode=block
+terrad tx wasm execute terra1fydtl60hm63wkumpj2m06k93ztdnq2grphr0f0 '{"start_match":{"first_move":{"new":[3,3],"original":[3,1]},"opponent":"terra17lmam6zguazs5q5u6z5mmx76uj63gldnse2pdp"}}' --from testacc1 --chain-id=bombay-10 --fees=2000uluna --gas=auto --broadcast-mode=block
 ```
 -------------------------------
 The easiest way, however, is to simply run the type script file which will use hard-coded wallet addresses (with hopefully enough balance, if not top up at the [faucet](https://faucet.terra.money/)) to run through a series of moves that eventually lead to checkmate. 
