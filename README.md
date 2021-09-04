@@ -45,7 +45,7 @@ The easiest way, however, is to simply run the type script file which will use h
 4. Current state of game can be queried via :
 - CLI: 
 ``` 
-terrad query wasm contract-store terra18vd8fpwxzck93qlwghaj6arh4p7c5n896xzem5 '{"CheckMatch":{"host":"terra1x46rqay4d3cssq8gxxvqz8xt6nwlz4td20k38v","opponent":"terra17lmam6zguazs5q5u6z5mmx76uj63gldnse2pdp"}}'
+terrad query wasm contract-store terra1fydtl60hm63wkumpj2m06k93ztdnq2grphr0f0 '{"CheckMatch":{"host":"terra1x46rqay4d3cssq8gxxvqz8xt6nwlz4td20k38v","opponent":"terra17lmam6zguazs5q5u6z5mmx76uj63gldnse2pdp"}}'
 ```
 - Curl:
 ```
