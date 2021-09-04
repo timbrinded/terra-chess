@@ -1,0 +1,123 @@
+{
+	"info": {
+		"_postman_id": "1a42746b-7a82-4c94-b40a-3a9ec18d6f21",
+		"name": "Terra LCD",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Info of CodeID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}wasm/codes/{{CodeID}}",
+					"host": [
+						"{{host}}wasm"
+					],
+					"path": [
+						"codes",
+						"{{CodeID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Contract Info",
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "terra17pwuad5t4th8tw39kyuwmcujty2mceevu6f7rf",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "terra17pwuad5t4th8tw39kyuwmcujty2mceevu6f7rf",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}wasm/contracts/{{ContractAddress}}",
+					"host": [
+						"{{host}}wasm"
+					],
+					"path": [
+						"contracts",
+						"{{ContractAddress}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Submit Contract Query",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}wasm/contracts/{{ContractAddress}}/store?query_msg={\"CheckMatch\":{\"host\":\"terra17pwuad5t4th8tw39kyuwmcujty2mceevu6f7rf\",\"opponent\":\"terra1gqwlwpuaj9s9ncu2t88387zdr2z2a7zdm9c205\"}}",
+					"host": [
+						"{{host}}wasm"
+					],
+					"path": [
+						"contracts",
+						"{{ContractAddress}}",
+						"store"
+					],
+					"query": [
+						{
+							"key": "query_msg",
+							"value": "{\"CheckMatch\":{\"host\":\"terra17pwuad5t4th8tw39kyuwmcujty2mceevu6f7rf\",\"opponent\":\"terra1gqwlwpuaj9s9ncu2t88387zdr2z2a7zdm9c205\"}}"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "host",
+			"value": "https://bombay-lcd.terra.dev/"
+		},
+		{
+			"key": "old host",
+			"value": "https://lcd.terra.dev/"
+		},
+		{
+			"key": "CodeID",
+			"value": "9175"
+		},
+		{
+			"key": "ContractAddress",
+			"value": "terra1fydtl60hm63wkumpj2m06k93ztdnq2grphr0f0"
+		}
+	]
+}

@@ -184,7 +184,6 @@ mod tests {
         };
         let res = query(deps.as_ref(), mock_env(), msg).unwrap();
         let decoded: Vec<String> = from_binary(&res).unwrap();
-        println!("The current game looks like this nonsense:");
         println!("{:?}", decoded);
     }
 }

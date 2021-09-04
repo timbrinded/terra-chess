@@ -18,3 +18,7 @@
 
 #wasms
 *.wasm
+
+#TS stuff
+.DS_Store
+node_modules
