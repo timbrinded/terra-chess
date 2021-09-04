@@ -115,11 +115,11 @@ pub fn query(deps: Deps, _env: Env, msg: QueryMsg) -> StdResult<Binary> {
     }
 }
 
-fn query_match(deps: Deps, host: String, opponent: String) -> StdResult<String> {
+fn query_match(deps: Deps, host: String, opponent: String) -> StdResult<Vec<String>> {
     let host_checked = deps.api.addr_validate(&host)?;
     let opponent_checked = deps.api.addr_validate(&opponent)?;
     let match_details = MATCHS.load(deps.storage, (&host_checked, &opponent_checked))?;
-    let mut string = String::from("");
+    let mut string = Vec::<String>::new();
 
     for item in match_details {
         let (x, y) = item.original;
@@ -132,8 +132,8 @@ fn query_match(deps: Deps, host: String, opponent: String) -> StdResult<String> 
             + &w.to_string()
             + &",".to_owned()
             + &v.to_string()
-            + &")\n".to_owned();
-        string.push_str(&line);
+            + &")".to_owned();
+        string.push(line);
     }
 
     Ok(string)
@@ -183,7 +183,7 @@ mod tests {
             host: info.sender.to_string(),
         };
         let res = query(deps.as_ref(), mock_env(), msg).unwrap();
-        let decoded: String = from_binary(&res).unwrap();
+        let decoded: Vec<String> = from_binary(&res).unwrap();
         println!("The current game looks like this nonsense:");
         println!("{:?}", decoded);
     }
