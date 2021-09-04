@@ -115,11 +115,28 @@ pub fn query(deps: Deps, _env: Env, msg: QueryMsg) -> StdResult<Binary> {
     }
 }
 
-fn query_match(deps: Deps, host: String, opponent: String) -> StdResult<Vec<ChessMove>> {
+fn query_match(deps: Deps, host: String, opponent: String) -> StdResult<String> {
     let host_checked = deps.api.addr_validate(&host)?;
     let opponent_checked = deps.api.addr_validate(&opponent)?;
     let match_details = MATCHS.load(deps.storage, (&host_checked, &opponent_checked))?;
-    Ok(match_details)
+    let mut string = String::from("");
+
+    for item in match_details {
+        let (x, y) = item.original;
+        let (w, v) = item.new;
+        let line = String::from("Move made from (")
+            + &x.to_string()
+            + &",".to_owned()
+            + &y.to_string()
+            + &") to (".to_owned()
+            + &w.to_string()
+            + &",".to_owned()
+            + &v.to_string()
+            + &")\n".to_owned();
+        string.push_str(&line);
+    }
+
+    Ok(string)
 }
 
 #[cfg(test)]
@@ -166,7 +183,7 @@ mod tests {
             host: info.sender.to_string(),
         };
         let res = query(deps.as_ref(), mock_env(), msg).unwrap();
-        let decoded: Vec<ChessMove> = from_binary(&res).unwrap();
+        let decoded: String = from_binary(&res).unwrap();
         println!("The current game looks like this nonsense:");
         println!("{:?}", decoded);
     }
