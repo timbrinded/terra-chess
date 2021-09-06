@@ -49,7 +49,7 @@ terrad query wasm contract-store terra1fydtl60hm63wkumpj2m06k93ztdnq2grphr0f0 '{
 ```
 - Curl:
 ```
-curl -X GET "https://lcd.terra.dev/wasm/contracts/terra1fydtl60hm63wkumpj2m06k93ztdnq2grphr0f0/store?query_msg=%7B%22CheckMatch%22%3A%7B%22host%22%3A%22terra17pwuad5t4th8tw39kyuwmcujty2mceevu6f7rf%22%2C%22opponent%22%3A%22terra1gqwlwpuaj9s9ncu2t88387zdr2z2a7zdm9c205%22%7D%7D" -H "accept: application/json"
+curl -X GET "https://bombay-lcd.terra.dev/wasm/contracts/terra1fydtl60hm63wkumpj2m06k93ztdnq2grphr0f0/store?query_msg=%7B%22CheckMatch%22%3A%7B%22host%22%3A%22terra17pwuad5t4th8tw39kyuwmcujty2mceevu6f7rf%22%2C%22opponent%22%3A%22terra1gqwlwpuaj9s9ncu2t88387zdr2z2a7zdm9c205%22%7D%7D" -H "accept: application/json"
 ```
 - Postman: Collection can be found at: `../scripts/Terra LCD.postman_collection.json`
 -------------------------------
